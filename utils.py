@@ -1,0 +1,28 @@
+import os.path
+
+
+def separate(path):
+    """
+    :return: eg.('d:', '/folder', 'filename', '.txt')
+    """
+    driver, tmp = os.path.splitdrive(path)
+    dir, tmp = os.path.split(tmp)
+    filename, file_ext = os.path.splitext(tmp)
+    return driver, dir, filename, file_ext
+
+
+class File:
+    def __init__(self, path):
+        self.path = path
+        self.driver, self.dir, self.filename, self.file_ext = separate(path)
+    def set_name(self,main_category,tags:list,extra_infomation:str):
+        """
+        eg.main_category/file_name #tag1 #tag2
+        eg.tables/score 2023 #college entrance examination# .xlsx
+        """
+        pass
+
+
+if __name__ == "__main__":
+    r = separate("d:/t/a.txt")
+    print(r)
