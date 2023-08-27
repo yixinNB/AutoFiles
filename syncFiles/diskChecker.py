@@ -19,8 +19,8 @@ def check_driver(driver:str):
     def create_lib():
         os.mkdir(libPath)
         myyaml.save({
-            "deviceId": get_random_str(),
-            "deviceType": "main backup" # todo ask user to define
+            "diskId": get_random_str(),
+            "diskType": "main backup" # todo ask user to define
         }, metaData_path)
 
     if not os.path.exists(metaData_path):
