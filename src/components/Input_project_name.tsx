@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { AutoComplete, AutoCompleteCompleteEvent } from "primereact/autocomplete";
 
-export default function Input_project() {
+export default function Input_project_name() {
     const [value, setValue] = useState<string>('');
     const [items, setItems] = useState<string[]>([]);
 
@@ -18,4 +18,4 @@ export default function Input_project() {
         </div>
     )
 }
-        
+

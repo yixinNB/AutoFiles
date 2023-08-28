@@ -1,7 +1,11 @@
-interface Dictionary {
+export interface Item {
     [key: string]: string;
 }
 
-interface DictionaryItemProps {
-    dictionary: Dictionary;
+export interface ItemListProps {
+    dictionaries: Item[];
+}
+
+export interface ItemProps {
+    dictionary: Item;
 }

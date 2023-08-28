@@ -1,10 +1,11 @@
 import {useState} from "react";
 import reactLogo from "./assets/react.svg";
 import {invoke} from "@tauri-apps/api/tauri";
-import Input_project from "./components/Input_project.tsx"
+import Input_project_name from "./components/Input_project_name.tsx"
 import File_details from "./components/File_details_list.tsx";
 import {MyWs} from './utils/myWs.tsx'
 import DictionaryList from "./components/File_details_list.tsx";
+import * as interfaces from "@src/interfaces.ts"
 
 
 // class Ws extends MyWs {
@@ -24,11 +25,8 @@ import DictionaryList from "./components/File_details_list.tsx";
 //         {...filedetails}
 //     )
 // }
-interface Dictionary {
-    [key: string]: string;
-}
 
-const dictionaries: Dictionary[] = [
+const dictionaries: interfaces.Item[] = [
     {name: 'Alice', age: '25', city: 'New York'},
     {name: 'Bob', age: '30', city: 'London'},
     {name: 'Charlie', age: '35', city: 'Paris'},

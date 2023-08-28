@@ -1,14 +1,10 @@
 import React from 'react';
-import interfaces from "interfaces.ts"
-interface Dictionary {
-    [key: string]: string;
-}
+import * as interfaces from "@src/interfaces.ts"
+import Input_project_name from "@src/components/Input_project_name.tsx"
 
-interface DictionaryItemProps {
-    dictionary: Dictionary;
-}
+import {Divider} from 'primereact/divider';
 
-const DictionaryItem: React.FC<DictionaryItemProps> = ({ dictionary }) => {
+const DictionaryItem: React.FC<interfaces.ItemProps> = ({ dictionary }) => {
     return (
         <div className="dictionary-item">
             {Object.entries(dictionary).map(([key, value]) => (
@@ -27,22 +23,23 @@ function File_details({details_dict}) {
             {Object.entries(details_dict).map(([key, value]) => (
                 <div key={key}>
                     <strong>{key}: </strong>
-                    {value}
+                    {value as string}
                 </div>
             ))}
         </div>
     )
 }
 
-interface DictionaryListProps {
-    dictionaries: Dictionary[];
-}
-
-const DictionaryList: React.FC<DictionaryListProps> = ({ dictionaries }) => {
+const DictionaryList: React.FC<interfaces.ItemListProps> = ({ dictionaries }) => {
     return (
         <div className="dictionary-list">
             {dictionaries.map((dictionary, index) => (
-                <File_details key={index} details_dict={dictionary} />
+                <>
+                    <File_details key={index} details_dict={dictionary} />
+                    <Divider/>
+                    <Input_project_name/>
+                </>
+
             ))}
         </div>
     );
