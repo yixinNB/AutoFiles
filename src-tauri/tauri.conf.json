@@ -37,8 +37,8 @@
       {
         "fullscreen": false,
         "resizable": true,
-        "title": "AutoFiles_ui",
-        "width": 800,
+        "title": "AutoFiles [internal testing, NOT indicative of final quality.]",
+        "width": 500,
         "height": 600
       }
     ]
