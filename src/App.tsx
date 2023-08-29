@@ -4,6 +4,7 @@ import {MyWs} from './utils/myWs.tsx'
 import Location_setting from "@src/components/Location_setting.tsx";
 import {Button} from 'primereact/button';
 import {Toast} from "primereact/toast";
+import {global_websocket} from "@src/main.tsx";
 
 
 class Ws extends MyWs {
@@ -27,17 +28,17 @@ class Ws extends MyWs {
 //     {name: 'Alice', age: '25', city: 'New York'},
 //     {name: 'Bob', age: '30', city: 'London'},
 // ];
-export let global_websocket: Ws
 let toastRef
 export const global_show = (message) => {
     toastRef.current?.show({severity: 'info', summary: 'Info', detail: message});
 };
+
 export default function App() {
     const [data, setData] = useState([])
+    useEffect(()=>{
+        global_websocket.add_listener("waiting_move_data", setData)
+    },[])
     toastRef = useRef<Toast>(null)
-    useEffect(() => {
-        global_websocket = new Ws("ws://localhost:8765", setData)
-    }, [])
     return (
         <>
             <Toast ref={toastRef}/>
@@ -49,6 +50,9 @@ export default function App() {
             }}>
                 technical testing, NOT indicative of final quality.
             </div>
+            <p>
+                alpha version will update every month, please make sure you are using the latest version.
+            </p>
             storage location
             <Location_setting/>
             <p>

@@ -4,7 +4,7 @@ import {Button} from 'primereact/button';
 import {classNames} from 'primereact/utils';
 import {AutoComplete} from "primereact/autocomplete";
 import {Toast} from 'primereact/toast';
-import {global_websocket} from "@src/App.tsx";
+import {global_websocket} from "@src/main.tsx";
 
 export default function Input_project_name({file_dir}) {
     const toast = useRef(null);
