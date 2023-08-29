@@ -1,6 +1,8 @@
 import os
 import os.path
 import datetime
+import time
+
 
 def get_file_last_access_modified_time_mb(file_path):
     if not os.path.isfile(file_path):
@@ -34,5 +36,6 @@ def get_directory_last_access_modified_time(directory_path):
 
     return latest_access_time,latest_modified_time
 
-
-r=get_directory_last_access_modified_time(r"D:\temp\old version")
+def set_access_modified_time_2_now(file_dir):
+    current_time=time.time()
+    os.utime(file_dir,(current_time,current_time)) #(access,modified)
