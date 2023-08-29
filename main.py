@@ -11,7 +11,7 @@ import findFiles
 import ws_server
 import data_storage
 
-print("backend server, DO NOT close it")
+print("backend server, DO NOT close it before main window")
 settings_onStart=data_storage.get_settings()
 __time_before_move=datetime.timedelta(days=settings_onStart["time_before_require_move_days"],
                                       minutes=settings_onStart["time_before_require_move_minutes"])
