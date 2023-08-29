@@ -5,7 +5,7 @@ import {Divider} from 'primereact/divider';
 import Input_project_name from "@src/components/Input_project_name.tsx";
 
 
-function File_details({details_dict}) {
+function File_details({details_dict}:interfaces.ItemProps) {
     return(
         <div className="dictionary-item">
             {Object.entries(details_dict).map(([key, value]) => (

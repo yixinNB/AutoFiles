@@ -42,7 +42,6 @@ export abstract class MyWs {
 //     onMsg(message: { [p: string]: any }): void | { [p: string]: any } {
 //         console.log(JSON.stringify(message));
 //     }
-//     a=21
 // }
 // let ws= new Ws("ws://localhost:8765")
 // ws.sendMsg({"test":1})

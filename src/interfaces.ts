@@ -2,10 +2,10 @@ export interface Item {
     [key: string]: string;
 }
 
-export interface ItemListProps {
-    dictionaries: Item[];
+export interface ItemProps {
+    details_dict: Item;
 }
 
-export interface ItemProps {
-    dictionary: Item;
+export interface ItemListProps {
+    dictionaries: Item[];
 }

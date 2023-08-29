@@ -34,6 +34,7 @@ export default function Input_project_name({file_dir}) {
         onSubmit: (data) => {
             data.item && show();
             global_websocket.sendMsg({
+                "type":"set file project",
                 "file":file_dir,
                 "project_name":formik.values.item
             })
