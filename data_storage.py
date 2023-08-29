@@ -6,16 +6,17 @@ if not os.path.exists("C:\ProgramData/AutoFiles"):
 
 __settings_dir = "C:\ProgramData/AutoFiles/data.json"
 __default_settings = {
-    "storage_location": "d:/AutoFiles_storage"
+    "storage_location": "d:/AutoFiles_storage",
+    "time_before_require_move_days": 30,
+    "time_before_require_move_minutes": 0,
 }
 
 
 def get_settings():
-    try:
-        with open(__settings_dir) as f:
-            return json5.load(f)
-    except:
-        return __default_settings
+    if not os.path.exists(__settings_dir):
+        set_settings(__default_settings)
+    with open(__settings_dir) as f:
+        return json5.load(f)
 
 
 def set_settings(settings):

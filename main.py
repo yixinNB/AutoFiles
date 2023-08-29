@@ -11,7 +11,10 @@ import findFiles
 import ws_server
 import data_storage
 
-__time_before_move=datetime.timedelta(minutes=1)
+print("backend server, DO NOT close it")
+settings_onStart=data_storage.get_settings()
+__time_before_move=datetime.timedelta(days=settings_onStart["time_before_require_move_days"],
+                                      minutes=settings_onStart["time_before_require_move_minutes"])
 
 def get_desktop():
     key = win32api.RegOpenKey(win32con.HKEY_CURRENT_USER,
@@ -80,4 +83,6 @@ class Ws(ws_server.WsServer):
         }
 
 ws=Ws()
-
+ws.run_forever()
+print("error,press any key to exit")
+input()

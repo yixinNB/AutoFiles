@@ -49,7 +49,10 @@ Traceback (most recent call last):
 KeyError: <websockets.legacy.server.WebSocketServerProtocol object at 0x00000297B63FCC90>
 ```
 
-
+# contribute guide
+```
+pyinstaller  -F main.py
+```
 
 
 

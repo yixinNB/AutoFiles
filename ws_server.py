@@ -7,12 +7,17 @@ import json5
 import websockets
 
 
-class WsServer(ABC):
+class WsServer():
     clients = set()
+    __start_wrapper_thread=None
 
     def __init__(self, port=8765):
         self.port = port
-        threading.Thread(target=self.__start_wrapper).start()
+        self.__start_wrapper_thread=threading.Thread(target=self.__start_wrapper)
+        self.__start_wrapper_thread.start()
+
+    def run_forever(self):
+        self.__start_wrapper_thread.join()
 
     async def handle_connection(self, websocket):
         self.clients.add(websocket)
@@ -85,3 +90,4 @@ class WsServer(ABC):
 
 if __name__ == "__main__":
     ws = WsServer()
+    ws.run_forever()
